@@ -7,11 +7,11 @@
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "node16",
+    "target": "ES2020",
     "types": [],
     // For nodejs:
-    // "lib": ["esnext"],
+    "lib": ["ES2020"],
     // "types": ["node"],
     // and npm install -D @types/node
 
@@ -41,5 +41,11 @@
     "moduleDetection": "force",
     "moduleResolution": "node16",
     "skipLibCheck": true,
-  }
+    "resolveJsonModule": true,
+    "typeRoots": ["./src/types", "./node_modules/@types"],
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
+  },
+  "include": ["src/**/**"],
+  "exclude": ["node_modules", "dist"]
 }
