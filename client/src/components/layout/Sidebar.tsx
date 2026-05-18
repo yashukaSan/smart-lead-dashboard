@@ -3,7 +3,7 @@ import {SquareDashed, CircleDashed, LayoutPanelLeft, Users,Settings} from 'lucid
 export default function SideBar(){
     return (
       <section className="bg-yellow-400 w-[18vw] text-xl">
-        <div className="border-b flex justify-center items-center text-2xl h-15">
+        <div className="border-b flex justify-center items-center text-2xl h-[12vh] ">
           <SquareDashed size={40} />
           <div>
             <h1 className="">SmartLeads</h1>
