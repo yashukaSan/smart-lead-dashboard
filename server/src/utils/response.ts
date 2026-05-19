@@ -14,5 +14,5 @@ export const sendError = (
     message: string,
     errors: string[] = []
  ):void=>{
-    res.status(statusCode).josn({ success: false, message, errors });
+    res.status(statusCode).json({ success: false, message, errors });
  };
