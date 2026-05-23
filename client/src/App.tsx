@@ -1,19 +1,40 @@
-import './App.css'
-import Skeleton  from './components/ui/Skeleton';
-import SideBar from './components/layout/Sidebar';
-import NavBar from "./components/layout/Navbar";
+import './App.css';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/auth/ProtectedRoute';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import Leads from './pages/Leads';
+import LeadDetails from './pages/LeadDetails';
 
 function App() {
-
   return (
-    <section className="flex h-screen w-screen bg-red-300">
-      <SideBar />
-      <section className="grid w-full " >
-        <NavBar />
-        <Skeleton  />
-      </section>
-    </section>
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/leads"
+            element={
+              <ProtectedRoute>
+                <Leads />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/leads/:id"
+            element={
+              <ProtectedRoute>
+                <LeadDetails />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/" element={<Navigate to="/leads" replace />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
-export default App
+export default App;
