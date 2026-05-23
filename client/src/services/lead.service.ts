@@ -1,5 +1,5 @@
 import apiClient from '../lib/axios';
-import { Lead, LeadsResponse, CreateLeadRequest, LeadFilters } from '../types/lead.types';
+import type { Lead, LeadsResponse, CreateLeadRequest, LeadFilters } from '../types/lead.types';
 
 export const leadService = {
   async getLeads(filters?: LeadFilters, page = 1, limit = 10): Promise<LeadsResponse> {

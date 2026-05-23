@@ -1,5 +1,5 @@
 import { Edit2, Trash2 } from 'lucide-react';
-import { Lead } from '../../types/lead.types';
+import type { Lead } from '../../types/lead.types';
 import Button from '../ui/Button';
 import EmptyState from '../ui/EmptyState';
 import Spinner from '../ui/Spinner';

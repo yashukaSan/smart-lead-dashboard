@@ -9,7 +9,7 @@ import Pagination from '../components/ui/Pagination';
 import Button from '../components/ui/Button';
 import { useLeads } from '../hooks/useLeads';
 import { useAuth } from '../hooks/useAuth';
-import { Lead, CreateLeadRequest } from '../types/lead.types';
+import type { Lead, CreateLeadRequest } from '../types/lead.types';
 import toast from 'react-hot-toast';
 
 export default function Leads() {

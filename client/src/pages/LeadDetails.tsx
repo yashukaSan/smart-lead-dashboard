@@ -8,7 +8,7 @@ import Spinner from '../components/ui/Spinner';
 import Button from '../components/ui/Button';
 import { useLeads } from '../hooks/useLeads';
 import { useAuth } from '../hooks/useAuth';
-import { Lead, CreateLeadRequest } from '../types/lead.types';
+import type { Lead, CreateLeadRequest } from '../types/lead.types';
 import { leadService } from '../services/lead.service';
 import toast from 'react-hot-toast';
 

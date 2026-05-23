@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { ChevronDown, X } from 'lucide-react';
-import { LeadFilters, LeadStatus, LeadSource } from '../../types/lead.types';
+import { LeadStatus, LeadSource } from '../../types/lead.types';
+import type { LeadFilters } from "../../types/lead.types";
 
 interface FilterBarProps {
   filters: LeadFilters;

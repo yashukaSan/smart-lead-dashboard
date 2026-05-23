@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { User, AuthContextType } from '../types/auth.types';
+import type { User, AuthContextType } from '../types/auth.types';
 import { authService } from '../services/auth.service';
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -19,6 +19,7 @@ export function AuthProvider({ children }: { children: ReactNode }): JSX.Element
           const user = await authService.getMe();
           setUser(user);
         } catch (err) {
+          console.log(err);
           localStorage.removeItem('token');
           setToken(null);
         }

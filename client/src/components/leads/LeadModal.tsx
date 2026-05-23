@@ -6,7 +6,8 @@ import Modal from '../ui/Modal';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import Button from '../ui/Button';
-import { Lead, LeadStatus, LeadSource, CreateLeadRequest } from '../../types/lead.types';
+import { LeadStatus, LeadSource } from '../../types/lead.types';
+import type {Lead,CreateLeadRequest } from "../../types/lead.types";
 
 const leadSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),

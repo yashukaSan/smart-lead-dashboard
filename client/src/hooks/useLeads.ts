@@ -1,5 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
-import { Lead, LeadsResponse, CreateLeadRequest, LeadFilters } from '../types/lead.types';
+import type { Lead, LeadsResponse, CreateLeadRequest, LeadFilters } from '../types/lead.types';
 import { leadService } from '../services/lead.service';
 import { useDebounce } from './useDebounce';
 

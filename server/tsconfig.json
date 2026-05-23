@@ -39,7 +39,9 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": false,
     "moduleDetection": "force",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "noEmitOnError": false,
@@ -48,6 +50,6 @@
     "esModuleInterop": true,
     "allowJs": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*"], 
   "exclude": ["node_modules", "dist"]
 }
