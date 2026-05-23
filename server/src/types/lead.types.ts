@@ -31,7 +31,7 @@ export interface LeadQuery{
 }
 
 export interface PaginatedLeads{
-    date: ILead[];
+    data: ILead[];
     total: number;
     page: number;
     totalPages: number;

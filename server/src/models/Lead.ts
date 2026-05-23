@@ -6,7 +6,7 @@
 // createdAt: Date
 
 import mongoose, { Schema, Document} from 'mongoose';
-import { ILead, LeadStatus, LeadSource } from '../types/lead.types';
+import { ILead, LeadStatus, LeadSource } from '../types/lead.types.js';
 
 export interface ILeadDocument extends ILead, Document {}
 
@@ -21,4 +21,5 @@ const LeadSchema = new Schema<ILeadDocument>({
 LeadSchema.index({ name: 'text', email: 'text' });
 LeadSchema.index({ status: 1, source: 1, createdAt: -1});
 
-export default mongoose.model<ILeadDocument>('Lead', LeadSchema);
+export const Lead = mongoose.model<ILeadDocument>('Lead', LeadSchema);
+export default Lead;

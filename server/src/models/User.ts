@@ -6,9 +6,11 @@
 
 import mongoose, {Schema, Document } from 'mongoose';
 import bcrypt from 'bcryptjs';
-import { IUser } from  '../types/user.types';
+import { IUser } from  '../types/user.types.js';
 
-export interface IUserDocument extends IUser, Document {}
+export interface IUserDocument extends IUser, Document {
+    comparePassword(candidate: string): Promise<boolean>;
+}
 
 const UserSchema = new Schema<IUserDocument>({
     name: {type: String, required: true, trim: true},
@@ -17,20 +19,24 @@ const UserSchema = new Schema<IUserDocument>({
     role: {type: String, enum: ['admin', 'sales'], default: 'sales' },
 }, { timestamps: true});
 
-UserSchema.pre('save', async function (next){
-    if(!this.isModified('password')) return next();
-    this.password = await bcrypt.hash(this.password, 10),
+UserSchema.pre('save', async function(this: IUserDocument, next: any) {
+    if (!this.isModified('password')) return next();
+    this.password = await bcrypt.hash(this.password, 10);
     next();
 });
 
-UserSchema.methods.comparePassword = async function (
-    candiate: string
-):Promise<boolean>{
+UserSchema.methods.comparePassword = async function(
+    candidate: string
+): Promise<boolean> {
     return bcrypt.compare(candidate, this.password);
 };
 
-UserSchema.set('toJSON',{
-    transfomr: (_doc, ret) => { delete ret.password; return ret; }
+UserSchema.set('toJSON', {
+    transform: (_doc: any, ret: any) => {
+        if (ret.password) delete ret.password;
+        return ret;
+    }
 });
 
-export default mongoose.model<IUserDocument>('User', UserSchema);
+export const User = mongoose.model<IUserDocument>('User', UserSchema);
+export default User;

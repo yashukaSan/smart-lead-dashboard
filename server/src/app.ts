@@ -10,10 +10,10 @@ app.use(cors({origin: process.env.CLIENT_URL ?? '*'}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false}));
 
-app.get('./health', (_req,res) => res.json({ status: 'ok' } ));
+app.get('/health', (_req,res) => res.json({ status: 'ok' } ));
 
-app.use('./api/auth', authRoutes);
-app.use('./app/leads', leadRoutes);
+app.use('/api/auth', authRoutes);
+app.use('/api/leads', leadRoutes);
 
 app.use(errorHandler);
 
