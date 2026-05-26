@@ -4,13 +4,15 @@
     "ignoreDeprecations": "6.0",
     // File Layout
     "rootDir": "./src",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "types": ["node"],
     "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "esnext",
-    "target": "ES2020",
-    "lib": ["ES2020"],
+    "lib": ["ES2022"],
     // and npm install -D @types/node
 
     // Other Outputs
@@ -36,7 +38,6 @@
     "isolatedModules": true,
     "noUncheckedSideEffectImports": false,
     "moduleDetection": "force",
-    "moduleResolution": "bundler",
     "noEmit": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
