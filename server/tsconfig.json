@@ -39,7 +39,6 @@
     "noUncheckedSideEffectImports": false,
     "moduleDetection": "force",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "noEmit": false,
     "skipLibCheck": true,
     "resolveJsonModule": true,
